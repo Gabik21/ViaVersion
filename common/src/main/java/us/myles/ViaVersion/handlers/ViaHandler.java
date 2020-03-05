@@ -1,7 +1,7 @@
 package us.myles.ViaVersion.handlers;
 
-import io.netty.buffer.ByteBuf;
-import io.netty.channel.ChannelHandlerContext;
+import net.minecraft.util.io.netty.buffer.ByteBuf;
+import net.minecraft.util.io.netty.channel.ChannelHandlerContext;
 
 public interface ViaHandler {
     public void transform(ByteBuf bytebuf) throws Exception;

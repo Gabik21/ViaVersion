@@ -1,6 +1,6 @@
 package us.myles.ViaVersion.sponge.platform;
 
-import io.netty.buffer.ByteBuf;
+import net.minecraft.util.io.netty.buffer.ByteBuf;
 import lombok.NonNull;
 import org.spongepowered.api.entity.living.player.Player;
 import us.myles.ViaVersion.api.Via;

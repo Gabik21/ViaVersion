@@ -1,19 +1,18 @@
 package us.myles.ViaVersion.protocols.protocol1_13to1_12_2.storage;
 
-import com.google.common.collect.Sets;
+import java.util.Collections;
+import java.util.Map;
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import us.myles.ViaVersion.api.data.StoredObject;
 import us.myles.ViaVersion.api.data.UserConnection;
 import us.myles.ViaVersion.api.minecraft.Position;
 
-import java.util.Map;
-import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
-
 public class BlockStorage extends StoredObject {
     // This BlockStorage is very exclusive (;
-    private static final Set<Integer> whitelist = Sets.newConcurrentHashSet();
+    private static final Set<Integer> whitelist = Collections.newSetFromMap(new ConcurrentHashMap<Integer, Boolean>());
 
     static {
         // Flower pots

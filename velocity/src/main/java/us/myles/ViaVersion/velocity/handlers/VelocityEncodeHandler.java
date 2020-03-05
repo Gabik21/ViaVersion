@@ -1,11 +1,11 @@
 package us.myles.ViaVersion.velocity.handlers;
 
-import io.netty.buffer.ByteBuf;
-import io.netty.channel.ChannelHandler;
-import io.netty.channel.ChannelHandlerContext;
-import io.netty.handler.codec.MessageToByteEncoder;
-import io.netty.handler.codec.MessageToMessageDecoder;
-import io.netty.handler.codec.MessageToMessageEncoder;
+import net.minecraft.util.io.netty.buffer.ByteBuf;
+import net.minecraft.util.io.netty.channel.ChannelHandler;
+import net.minecraft.util.io.netty.channel.ChannelHandlerContext;
+import net.minecraft.util.io.netty.handler.codec.MessageToByteEncoder;
+import net.minecraft.util.io.netty.handler.codec.MessageToMessageDecoder;
+import net.minecraft.util.io.netty.handler.codec.MessageToMessageEncoder;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import us.myles.ViaVersion.api.PacketWrapper;

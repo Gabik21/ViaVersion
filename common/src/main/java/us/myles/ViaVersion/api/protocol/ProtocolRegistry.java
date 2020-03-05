@@ -2,7 +2,16 @@ package us.myles.ViaVersion.api.protocol;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Range;
-import com.google.common.collect.Sets;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeSet;
+import java.util.concurrent.ConcurrentHashMap;
 import us.myles.ViaVersion.api.Pair;
 import us.myles.ViaVersion.api.Via;
 import us.myles.ViaVersion.protocols.base.BaseProtocol;
@@ -30,9 +39,6 @@ import us.myles.ViaVersion.protocols.protocol1_9_3to1_9_1_2.Protocol1_9_3To1_9_1
 import us.myles.ViaVersion.protocols.protocol1_9to1_8.Protocol1_9To1_8;
 import us.myles.ViaVersion.protocols.protocol1_9to1_9_1.Protocol1_9To1_9_1;
 
-import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
-
 public class ProtocolRegistry {
     public static final Protocol BASE_PROTOCOL = new BaseProtocol();
     public static int SERVER_PROTOCOL = -1;
@@ -40,7 +46,7 @@ public class ProtocolRegistry {
     private static final Map<Integer, Map<Integer, Protocol>> registryMap = new ConcurrentHashMap<>();
     private static final Map<Pair<Integer, Integer>, List<Pair<Integer, Protocol>>> pathCache = new ConcurrentHashMap<>();
     private static final List<Protocol> registerList = Lists.newCopyOnWriteArrayList();
-    private static final Set<Integer> supportedVersions = Sets.newConcurrentHashSet();
+    private static final Set<Integer> supportedVersions = Collections.newSetFromMap(new ConcurrentHashMap<Integer, Boolean>());
     private static final List<Pair<Range<Integer>, Protocol>> baseProtocols = Lists.newCopyOnWriteArrayList();
 
     static {
@@ -132,7 +138,7 @@ public class ProtocolRegistry {
 
         supportedVersions.add(ProtocolRegistry.SERVER_PROTOCOL);
         for (ProtocolVersion versions : ProtocolVersion.getProtocols()) {
-            List<Pair<Integer, Protocol>> paths = getProtocolPath(versions.getId(), ProtocolRegistry.SERVER_PROTOCOL);
+            List<Pair<Integer, Protocol>> paths = getProtocolPath(versions.getId(), SERVER_PROTOCOL);
             if (paths == null) continue;
             supportedVersions.add(versions.getId());
             for (Pair<Integer, Protocol> path : paths)
@@ -230,6 +236,9 @@ public class ProtocolRegistry {
      * @return The path it generated, null if it failed.
      */
     public static List<Pair<Integer, Protocol>> getProtocolPath(int clientVersion, int serverVersion) {
+        if (clientVersion > ProtocolVersion.v1_7_6.getId() && serverVersion < ProtocolVersion.v1_8.getId()) {
+            serverVersion = ProtocolVersion.v1_8.getId();
+        }
         Pair<Integer, Integer> protocolKey = new Pair<>(clientVersion, serverVersion);
         // Check cache
         List<Pair<Integer, Protocol>> protocolList = pathCache.get(protocolKey);

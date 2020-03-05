@@ -52,7 +52,7 @@ public class MetadataRewriter {
                 }
 
                 if (type.isOrHasParent(Entity1_14Types.EntityType.ABSTRACT_INSENTIENT)) {
-                    if (metadata.getId() == 13) {
+                    if (metadata.getId() == 13 && metadata.getMetaType() == MetaType1_14.Byte) {
                         tracker.setInsentientData(entityId, (byte) ((((Number) metadata.getValue()).byteValue() & ~0x4)
                                 | (tracker.getInsentientData(entityId) & 0x4))); // New attacking metadata
                         metadata.setValue(tracker.getInsentientData(entityId));

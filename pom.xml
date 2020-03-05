@@ -97,11 +97,30 @@
 
         <!-- Netty (Network Library) -->
         <dependency>
-            <groupId>io.netty</groupId>
-            <artifactId>netty-all</artifactId>
-            <version>4.0.20.Final</version>
+            <groupId>org.github.paperspigot</groupId>
+            <artifactId>gspigot</artifactId>
+            <version>1.7.10-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
+            <classifier>shaded</classifier>
             <optional>true</optional>
+            <exclusions>
+                <exclusion>
+                    <artifactId>junit</artifactId>
+                    <groupId>junit</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>gson</artifactId>
+                    <groupId>com.google.code.gson</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>persistence-api</artifactId>
+                    <groupId>javax.persistence</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>*</artifactId>
+                    <groupId>io.netty</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
         <!-- ChatColour API -->
@@ -110,14 +129,6 @@
             <artifactId>bungeecord-chat</artifactId>
             <version>1.14-SNAPSHOT</version>
             <scope>compile</scope>
-        </dependency>
-
-        <!-- Guava magic -->
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>17.0</version>
-            <scope>provided</scope>
         </dependency>
 
         <!-- JUnit -->

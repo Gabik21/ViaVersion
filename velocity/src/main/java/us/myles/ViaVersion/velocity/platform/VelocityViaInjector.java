@@ -1,7 +1,7 @@
 package us.myles.ViaVersion.velocity.platform;
 
 import com.google.gson.JsonObject;
-import io.netty.channel.ChannelInitializer;
+import net.minecraft.util.io.netty.channel.ChannelInitializer;
 import us.myles.ViaVersion.VelocityPlugin;
 import us.myles.ViaVersion.api.Via;
 import us.myles.ViaVersion.api.platform.ViaInjector;

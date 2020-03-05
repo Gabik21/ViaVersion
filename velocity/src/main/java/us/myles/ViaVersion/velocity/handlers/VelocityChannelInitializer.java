@@ -1,7 +1,7 @@
 package us.myles.ViaVersion.velocity.handlers;
 
-import io.netty.channel.Channel;
-import io.netty.channel.ChannelInitializer;
+import net.minecraft.util.io.netty.channel.Channel;
+import net.minecraft.util.io.netty.channel.ChannelInitializer;
 import lombok.AllArgsConstructor;
 import us.myles.ViaVersion.api.data.UserConnection;
 import us.myles.ViaVersion.api.protocol.ProtocolPipeline;

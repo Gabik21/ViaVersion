@@ -1,6 +1,6 @@
 package us.myles.ViaVersion.api.minecraft.chunks;
 
-import io.netty.buffer.ByteBuf;
+import net.minecraft.util.io.netty.buffer.ByteBuf;
 import lombok.Getter;
 import lombok.Setter;
 

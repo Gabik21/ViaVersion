@@ -1,6 +1,6 @@
 package us.myles.ViaVersion.api.type.types;
 
-import io.netty.buffer.ByteBuf;
+import net.minecraft.util.io.netty.buffer.ByteBuf;
 import us.myles.ViaVersion.api.type.PartialType;
 
 public class CustomByteType extends PartialType<byte[], Integer> {

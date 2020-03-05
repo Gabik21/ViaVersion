@@ -1,7 +1,7 @@
 package us.myles.ViaVersion.common.test.type;
 
-import io.netty.buffer.ByteBuf;
-import io.netty.buffer.Unpooled;
+import net.minecraft.util.io.netty.buffer.ByteBuf;
+import net.minecraft.util.io.netty.buffer.Unpooled;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import us.myles.ViaVersion.api.minecraft.item.Item;

@@ -1,7 +1,7 @@
 package us.myles.ViaVersion.protocols.protocol1_9_3to1_9_1_2.types;
 
 import com.github.steveice10.opennbt.tag.builtin.CompoundTag;
-import io.netty.buffer.ByteBuf;
+import net.minecraft.util.io.netty.buffer.ByteBuf;
 import us.myles.ViaVersion.api.Via;
 import us.myles.ViaVersion.api.minecraft.Environment;
 import us.myles.ViaVersion.api.minecraft.chunks.BaseChunk;

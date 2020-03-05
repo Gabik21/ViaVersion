@@ -36,7 +36,7 @@ public class BukkitViaMovementTransmitter extends MovementTransmitterProvider {
             idlePacket = idlePacketClass.newInstance();
             idlePacket2 = idlePacketClass.newInstance();
 
-            Field flying = idlePacketClass.getDeclaredField("f");
+            Field flying = idlePacketClass.getDeclaredField("g");
             flying.setAccessible(true);
 
             flying.set(idlePacket2, true);

@@ -1,19 +1,18 @@
 package us.myles.ViaVersion.protocols.protocol1_11to1_10.storage;
 
 import com.google.common.base.Optional;
-import com.google.common.collect.Sets;
+import java.util.Collections;
+import java.util.Map;
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 import us.myles.ViaVersion.api.data.ExternalJoinGameListener;
 import us.myles.ViaVersion.api.data.StoredObject;
 import us.myles.ViaVersion.api.data.UserConnection;
 import us.myles.ViaVersion.api.entities.Entity1_11Types;
 
-import java.util.Map;
-import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
-
 public class EntityTracker extends StoredObject implements ExternalJoinGameListener {
     private final Map<Integer, Entity1_11Types.EntityType> clientEntityTypes = new ConcurrentHashMap<>();
-    private final Set<Integer> holograms = Sets.newConcurrentHashSet();
+    private final Set<Integer> holograms = Collections.newSetFromMap(new ConcurrentHashMap<Integer, Boolean>());
 
     public EntityTracker(UserConnection user) {
         super(user);

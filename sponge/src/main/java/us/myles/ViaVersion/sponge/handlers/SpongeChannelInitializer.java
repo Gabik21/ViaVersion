@@ -1,10 +1,10 @@
 package us.myles.ViaVersion.sponge.handlers;
 
-import io.netty.channel.Channel;
-import io.netty.channel.ChannelInitializer;
-import io.netty.channel.socket.SocketChannel;
-import io.netty.handler.codec.ByteToMessageDecoder;
-import io.netty.handler.codec.MessageToByteEncoder;
+import net.minecraft.util.io.netty.channel.Channel;
+import net.minecraft.util.io.netty.channel.ChannelInitializer;
+import net.minecraft.util.io.netty.channel.socket.SocketChannel;
+import net.minecraft.util.io.netty.handler.codec.ByteToMessageDecoder;
+import net.minecraft.util.io.netty.handler.codec.MessageToByteEncoder;
 import lombok.Getter;
 import us.myles.ViaVersion.api.data.UserConnection;
 import us.myles.ViaVersion.api.protocol.ProtocolPipeline;

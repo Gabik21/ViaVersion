@@ -1,9 +1,9 @@
 package us.myles.ViaVersion.bungee.util;
 
-import io.netty.buffer.ByteBuf;
-import io.netty.channel.ChannelHandlerContext;
-import io.netty.handler.codec.MessageToByteEncoder;
-import io.netty.handler.codec.MessageToMessageDecoder;
+import net.minecraft.util.io.netty.buffer.ByteBuf;
+import net.minecraft.util.io.netty.channel.ChannelHandlerContext;
+import net.minecraft.util.io.netty.handler.codec.MessageToByteEncoder;
+import net.minecraft.util.io.netty.handler.codec.MessageToMessageDecoder;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

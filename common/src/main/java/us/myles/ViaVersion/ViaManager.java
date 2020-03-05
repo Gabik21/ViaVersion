@@ -76,6 +76,7 @@ public class ViaManager {
             getPlatform().getLogger().severe("ViaVersion failed to get the server protocol!");
             e.printStackTrace();
         }
+        ProtocolRegistry.SERVER_PROTOCOL = ProtocolVersion.v1_8.getId();
         // Check if there are any pipes to this version
         if (ProtocolRegistry.SERVER_PROTOCOL != -1) {
             getPlatform().getLogger().info("ViaVersion detected server version: " + ProtocolVersion.getProtocol(ProtocolRegistry.SERVER_PROTOCOL));

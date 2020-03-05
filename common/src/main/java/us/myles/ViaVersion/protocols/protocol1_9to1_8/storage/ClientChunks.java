@@ -1,19 +1,19 @@
 package us.myles.ViaVersion.protocols.protocol1_9to1_8.storage;
 
-import com.google.common.collect.Sets;
+import java.util.Collections;
+import java.util.List;
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 import lombok.Getter;
 import us.myles.ViaVersion.api.Via;
 import us.myles.ViaVersion.api.data.StoredObject;
 import us.myles.ViaVersion.api.data.UserConnection;
 import us.myles.ViaVersion.protocols.protocol1_9to1_8.providers.BulkChunkTranslatorProvider;
 
-import java.util.List;
-import java.util.Set;
-
 @Getter
 public class ClientChunks extends StoredObject {
-    private final Set<Long> loadedChunks = Sets.newConcurrentHashSet();
-    private final Set<Long> bulkChunks = Sets.newConcurrentHashSet();
+    private final Set<Long> loadedChunks = Collections.newSetFromMap(new ConcurrentHashMap<Long, Boolean>());
+    private final Set<Long> bulkChunks = Collections.newSetFromMap(new ConcurrentHashMap<Long, Boolean>());
 
     public ClientChunks(UserConnection user) {
         super(user);

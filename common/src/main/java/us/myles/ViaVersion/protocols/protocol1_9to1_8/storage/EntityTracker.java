@@ -2,7 +2,14 @@ package us.myles.ViaVersion.protocols.protocol1_9to1_8.storage;
 
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
-import com.google.common.collect.Sets;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.TimeUnit;
 import lombok.Getter;
 import lombok.Setter;
 import us.myles.ViaVersion.api.PacketWrapper;
@@ -27,10 +34,6 @@ import us.myles.ViaVersion.protocols.protocol1_9to1_8.metadata.MetadataRewriter;
 import us.myles.ViaVersion.protocols.protocol1_9to1_8.providers.BossBarProvider;
 import us.myles.ViaVersion.protocols.protocol1_9to1_8.providers.EntityIdProvider;
 
-import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.TimeUnit;
-
 @Getter
 public class EntityTracker extends StoredObject implements ExternalJoinGameListener {
     private final Map<Integer, UUID> uuidMap = new ConcurrentHashMap<>();
@@ -38,8 +41,8 @@ public class EntityTracker extends StoredObject implements ExternalJoinGameListe
     private final Map<Integer, List<Metadata>> metadataBuffer = new ConcurrentHashMap<>();
     private final Map<Integer, Integer> vehicleMap = new ConcurrentHashMap<>();
     private final Map<Integer, BossBar> bossBarMap = new ConcurrentHashMap<>();
-    private final Set<Integer> validBlocking = Sets.newConcurrentHashSet();
-    private final Set<Integer> knownHolograms = Sets.newConcurrentHashSet();
+    private final Set<Integer> validBlocking = Collections.newSetFromMap(new ConcurrentHashMap<Integer, Boolean>());
+    private final Set<Integer> knownHolograms = Collections.newSetFromMap(new ConcurrentHashMap<Integer, Boolean>());
     private final Cache<Position, Integer> blockInteractions = CacheBuilder.newBuilder().maximumSize(10).expireAfterAccess(250, TimeUnit.MILLISECONDS).build();
     @Setter
     private boolean blocking = false;

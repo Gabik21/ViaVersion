@@ -2,10 +2,10 @@ package us.myles.ViaVersion.sponge.platform;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import io.netty.channel.Channel;
-import io.netty.channel.ChannelFuture;
-import io.netty.channel.ChannelHandler;
-import io.netty.channel.ChannelInitializer;
+import net.minecraft.util.io.netty.channel.Channel;
+import net.minecraft.util.io.netty.channel.ChannelFuture;
+import net.minecraft.util.io.netty.channel.ChannelHandler;
+import net.minecraft.util.io.netty.channel.ChannelInitializer;
 import org.spongepowered.api.MinecraftVersion;
 import org.spongepowered.api.Sponge;
 import us.myles.ViaVersion.api.Pair;

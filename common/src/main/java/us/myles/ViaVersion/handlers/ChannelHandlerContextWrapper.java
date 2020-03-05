@@ -1,11 +1,11 @@
 package us.myles.ViaVersion.handlers;
 
-import io.netty.buffer.ByteBuf;
-import io.netty.buffer.ByteBufAllocator;
-import io.netty.channel.*;
-import io.netty.util.Attribute;
-import io.netty.util.AttributeKey;
-import io.netty.util.concurrent.EventExecutor;
+import net.minecraft.util.io.netty.buffer.ByteBuf;
+import net.minecraft.util.io.netty.buffer.ByteBufAllocator;
+import net.minecraft.util.io.netty.channel.*;
+import net.minecraft.util.io.netty.util.Attribute;
+import net.minecraft.util.io.netty.util.AttributeKey;
+import net.minecraft.util.io.netty.util.concurrent.EventExecutor;
 
 import java.net.SocketAddress;
 

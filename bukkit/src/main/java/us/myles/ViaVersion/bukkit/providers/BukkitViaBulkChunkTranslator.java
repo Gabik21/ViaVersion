@@ -23,7 +23,7 @@ public class BukkitViaBulkChunkTranslator extends BulkChunkTranslatorProvider {
             mapChunkBulkRef = new ReflectionUtil.ClassReflection(NMSUtil.nms("PacketPlayOutMapChunkBulk"));
             mapChunkRef = new ReflectionUtil.ClassReflection(NMSUtil.nms("PacketPlayOutMapChunk"));
             if (((ViaVersionPlugin) Via.getPlatform()).isSpigot()) {
-                obfuscateRef = Class.forName("org.spigotmc.AntiXray").getMethod("obfuscate", int.class, int.class, int.class, byte[].class, NMSUtil.nms("World"));
+                obfuscateRef = Class.forName("org.spigotmc.AntiXray").getMethod("obfuscate", int.class, int.class, int.class, byte[].class, NMSUtil.nms("World"), boolean.class);
             }
         } catch (ClassNotFoundException e) {
             // Ignore as server is probably 1.9+
@@ -38,7 +38,9 @@ public class BukkitViaBulkChunkTranslator extends BulkChunkTranslatorProvider {
         try {
             int[] xcoords = mapChunkBulkRef.getFieldValue("a", packet, int[].class);
             int[] zcoords = mapChunkBulkRef.getFieldValue("b", packet, int[].class);
-            Object[] chunkMaps = mapChunkBulkRef.getFieldValue("c", packet, Object[].class);
+            int[] chunkMapsCValue = mapChunkBulkRef.getFieldValue("d", packet, int[].class);
+            int[] chunkMapsBValue = mapChunkBulkRef.getFieldValue("c", packet, int[].class);
+            byte[][] chunkMapsAValue = mapChunkBulkRef.getFieldValue("inflatedBuffers", packet, byte[][].class);
 
             if (Via.getConfig().isAntiXRay() && ((ViaVersionPlugin) Via.getPlatform()).isSpigot()) { //Spigot anti-xray patch
                 try {
@@ -48,24 +50,23 @@ public class BukkitViaBulkChunkTranslator extends BulkChunkTranslatorProvider {
 
                     for (int i = 0; i < xcoords.length; ++i) {
                         // TODO: Possibly optimise this
-                        Object b = ReflectionUtil.get(chunkMaps[i], "b", Object.class);
-                        Object a = ReflectionUtil.get(chunkMaps[i], "a", Object.class);
 
-                        obfuscateRef.invoke(antiXrayInstance, xcoords[i], zcoords[i], b, a, world);
+                        obfuscateRef.invoke(antiXrayInstance, xcoords[i], zcoords[i], chunkMapsBValue[i], chunkMapsAValue[i], world, true);
                     }
                 } catch (Exception e) {
                     // not spigot, or it failed.
                 }
             }
-            for (int i = 0; i < chunkMaps.length; i++) {
+            for (int i = 0; i < chunkMapsBValue.length; i++) {
                 int x = xcoords[i];
                 int z = zcoords[i];
-                Object chunkMap = chunkMaps[i];
                 Object chunkPacket = mapChunkRef.newInstance();
                 mapChunkRef.setFieldValue("a", chunkPacket, x);
                 mapChunkRef.setFieldValue("b", chunkPacket, z);
-                mapChunkRef.setFieldValue("c", chunkPacket, chunkMap);
-                mapChunkRef.setFieldValue("d", chunkPacket, true); // Chunk bulk chunks are always ground-up
+                mapChunkRef.setFieldValue("c", chunkPacket, chunkMapsBValue[i]);
+                mapChunkRef.setFieldValue("d", chunkPacket, chunkMapsCValue[i]);
+                mapChunkRef.setFieldValue("f", chunkPacket, chunkMapsAValue[i]);
+                mapChunkRef.setFieldValue("g", chunkPacket, true); // Chunk bulk chunks are always ground-up
                 clientChunks.getBulkChunks().add(ClientChunks.toLong(x, z)); // Store for later
                 list.add(chunkPacket);
             }

@@ -1,6 +1,6 @@
 package us.myles.ViaVersion.protocols.protocol1_13_2to1_13_1.types;
 
-import io.netty.buffer.ByteBuf;
+import net.minecraft.util.io.netty.buffer.ByteBuf;
 import us.myles.ViaVersion.api.type.Type;
 import us.myles.ViaVersion.api.type.types.Particle;
 

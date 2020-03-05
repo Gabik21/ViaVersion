@@ -2,10 +2,10 @@ package us.myles.ViaVersion.bukkit.platform;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import io.netty.channel.ChannelFuture;
-import io.netty.channel.ChannelHandler;
-import io.netty.channel.ChannelInitializer;
-import io.netty.channel.socket.SocketChannel;
+import net.minecraft.util.io.netty.channel.ChannelFuture;
+import net.minecraft.util.io.netty.channel.ChannelHandler;
+import net.minecraft.util.io.netty.channel.ChannelInitializer;
+import net.minecraft.util.io.netty.channel.socket.SocketChannel;
 import org.bukkit.plugin.PluginDescriptionFile;
 import us.myles.ViaVersion.api.Pair;
 import us.myles.ViaVersion.api.Via;

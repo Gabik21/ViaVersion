@@ -129,7 +129,9 @@ public class MetadataRewriter {
                         list.remove(entry);
                     }
                 } else {
-                    throw new Exception("Could not find valid metadata");
+                    if (entry.getId() != 10 && entry.getId() != 11) {
+                        throw new Exception("Could not find valid metadata");
+                    }
                 }
             } catch (Exception e) {
                 list.remove(entry);

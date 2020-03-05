@@ -1,7 +1,7 @@
 package us.myles.ViaVersion.api.type.types;
 
 import com.google.common.base.Preconditions;
-import io.netty.buffer.ByteBuf;
+import net.minecraft.util.io.netty.buffer.ByteBuf;
 import us.myles.ViaVersion.api.type.Type;
 
 import java.nio.charset.StandardCharsets;

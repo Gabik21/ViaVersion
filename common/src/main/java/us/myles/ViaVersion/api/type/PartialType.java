@@ -1,6 +1,6 @@
 package us.myles.ViaVersion.api.type;
 
-import io.netty.buffer.ByteBuf;
+import net.minecraft.util.io.netty.buffer.ByteBuf;
 
 public abstract class PartialType<T, X> extends Type<T> {
     private final X param;

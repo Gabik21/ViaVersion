@@ -1,6 +1,6 @@
 package us.myles.ViaVersion.protocols.protocol1_9to1_8.providers;
 
-import io.netty.channel.ChannelHandlerContext;
+import net.minecraft.util.io.netty.channel.ChannelHandlerContext;
 import us.myles.ViaVersion.api.data.UserConnection;
 import us.myles.ViaVersion.api.platform.providers.Provider;
 import us.myles.ViaVersion.protocols.protocol1_9to1_8.storage.MovementTracker;

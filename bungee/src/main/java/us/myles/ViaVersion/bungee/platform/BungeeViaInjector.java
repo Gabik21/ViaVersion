@@ -1,8 +1,8 @@
 package us.myles.ViaVersion.bungee.platform;
 
 import com.google.gson.JsonObject;
-import io.netty.channel.Channel;
-import io.netty.channel.ChannelInitializer;
+import net.minecraft.util.io.netty.channel.Channel;
+import net.minecraft.util.io.netty.channel.ChannelInitializer;
 import us.myles.ViaVersion.api.Via;
 import us.myles.ViaVersion.api.platform.ViaInjector;
 import us.myles.ViaVersion.bungee.handlers.BungeeChannelInitializer;

@@ -1,7 +1,7 @@
 package us.myles.ViaVersion.bukkit.classgenerator;
 
-import io.netty.handler.codec.ByteToMessageDecoder;
-import io.netty.handler.codec.MessageToByteEncoder;
+import net.minecraft.util.io.netty.handler.codec.ByteToMessageDecoder;
+import net.minecraft.util.io.netty.handler.codec.MessageToByteEncoder;
 import us.myles.ViaVersion.api.data.UserConnection;
 import us.myles.ViaVersion.bukkit.handlers.BukkitDecodeHandler;
 import us.myles.ViaVersion.bukkit.handlers.BukkitEncodeHandler;

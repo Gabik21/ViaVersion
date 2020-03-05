@@ -1,6 +1,6 @@
 package us.myles.ViaVersion.api.type.types.minecraft;
 
-import io.netty.buffer.ByteBuf;
+import net.minecraft.util.io.netty.buffer.ByteBuf;
 import us.myles.ViaVersion.api.type.Type;
 
 public class OptionalChatType extends Type<String> {

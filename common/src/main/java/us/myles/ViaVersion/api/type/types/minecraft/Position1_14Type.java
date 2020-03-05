@@ -1,6 +1,6 @@
 package us.myles.ViaVersion.api.type.types.minecraft;
 
-import io.netty.buffer.ByteBuf;
+import net.minecraft.util.io.netty.buffer.ByteBuf;
 import us.myles.ViaVersion.api.minecraft.Position;
 import us.myles.ViaVersion.api.type.Type;
 

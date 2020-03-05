@@ -1,6 +1,6 @@
 package us.myles.ViaVersion.commands.defaultsubs;
 
-import io.netty.util.ResourceLeakDetector;
+import net.minecraft.util.io.netty.util.ResourceLeakDetector;
 import us.myles.ViaVersion.api.command.ViaCommandSender;
 import us.myles.ViaVersion.api.command.ViaSubCommand;
 

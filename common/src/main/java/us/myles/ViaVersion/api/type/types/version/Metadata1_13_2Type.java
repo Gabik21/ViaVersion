@@ -1,6 +1,6 @@
 package us.myles.ViaVersion.api.type.types.version;
 
-import io.netty.buffer.ByteBuf;
+import net.minecraft.util.io.netty.buffer.ByteBuf;
 import us.myles.ViaVersion.api.minecraft.metadata.Metadata;
 import us.myles.ViaVersion.api.minecraft.metadata.types.MetaType1_13_2;
 import us.myles.ViaVersion.api.type.types.minecraft.MetaTypeTemplate;
