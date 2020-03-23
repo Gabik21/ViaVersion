@@ -323,6 +323,12 @@ public class InventoryPackets {
                         EntityTracker entityTracker = wrapper.user().get(EntityTracker.class);
                         if (entityTracker.isBlocking()) {
                             entityTracker.setBlocking(false);
+                        }
+                        Item item = Protocol1_9To1_8.getItemOnSlot(wrapper.user(), wrapper.passthrough(Type.SHORT));
+                        if (Protocol1_9To1_8.isSword(item.getId())) {
+                            Item shield = new Item((short) 442, (byte) 1, (short) 0, null);
+                            entityTracker.setSecondHand(shield);
+                        } else {
                             entityTracker.setSecondHand(null);
                         }
                     }

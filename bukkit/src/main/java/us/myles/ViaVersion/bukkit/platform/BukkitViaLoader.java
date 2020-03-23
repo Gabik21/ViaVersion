@@ -27,6 +27,7 @@ import us.myles.ViaVersion.protocols.protocol1_12to1_11_1.providers.InventoryQui
 import us.myles.ViaVersion.protocols.protocol1_13to1_12_2.blockconnections.providers.BlockConnectionProvider;
 import us.myles.ViaVersion.protocols.protocol1_9to1_8.providers.BulkChunkTranslatorProvider;
 import us.myles.ViaVersion.protocols.protocol1_9to1_8.providers.HandItemProvider;
+import us.myles.ViaVersion.protocols.protocol1_9to1_8.providers.HotbarProvider;
 import us.myles.ViaVersion.protocols.protocol1_9to1_8.providers.MovementTransmitterProvider;
 
 import java.util.HashSet;
@@ -138,6 +139,13 @@ public class BukkitViaLoader implements ViaPlatformLoader {
                         return null;
                     }
                 }
+            }
+        });
+
+        Via.getManager().getProviders().use(HotbarProvider.class, new HotbarProvider() {
+            @Override
+            public Item getItem(UserConnection info, int slot) {
+                return HandItemCache.convert(Bukkit.getPlayer(info.get(ProtocolInfo.class).getUuid()).getInventory().getItem(slot));
             }
         });
 

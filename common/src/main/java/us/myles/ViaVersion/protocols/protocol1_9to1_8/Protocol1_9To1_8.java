@@ -60,6 +60,10 @@ public class Protocol1_9To1_8 extends Protocol {
         return Via.getManager().getProviders().get(HandItemProvider.class).getHandItem(info);
     }
 
+    public static Item getItemOnSlot(final UserConnection info, final int slot) {
+        return Via.getManager().getProviders().get(HotbarProvider.class).getItem(info, slot);
+    }
+
     public static boolean isSword(int id) {
         if (id == 267) return true; // Iron
         if (id == 268) return true; // Wood
@@ -91,6 +95,7 @@ public class Protocol1_9To1_8 extends Protocol {
     @Override
     protected void register(ViaProviders providers) {
         providers.register(HandItemProvider.class, new HandItemProvider());
+        providers.register(HotbarProvider.class, new HotbarProvider());
         providers.register(BulkChunkTranslatorProvider.class, new BulkChunkTranslatorProvider());
         providers.register(CommandBlockProvider.class, new CommandBlockProvider());
         providers.register(EntityIdProvider.class, new EntityIdProvider());

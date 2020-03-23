@@ -271,7 +271,6 @@ public class WorldPackets {
                             EntityTracker entityTracker = wrapper.user().get(EntityTracker.class);
                             if (entityTracker.isBlocking()) {
                                 entityTracker.setBlocking(false);
-                                entityTracker.setSecondHand(null);
                             }
                         }
                     }
@@ -306,11 +305,10 @@ public class WorldPackets {
                                         Item shield = new Item((short) 442, (byte) 1, (short) 0, null);
                                         tracker.setSecondHand(shield);
                                     }
-                                    wrapper.cancel();
                                 }
                             } else {
-                                tracker.setSecondHand(null);
                                 tracker.setBlocking(false);
+                                tracker.setSecondHand(null);
                             }
                         }
                         wrapper.write(Type.ITEM, item);

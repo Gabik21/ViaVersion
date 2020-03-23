@@ -567,7 +567,6 @@ public class PlayerPackets {
                             // cancel any blocking >.>
                             EntityTracker tracker = wrapper.user().get(EntityTracker.class);
                             if (tracker.isBlocking()) {
-                                tracker.setSecondHand(null);
                                 tracker.setBlocking(false);
                             }
                         }
